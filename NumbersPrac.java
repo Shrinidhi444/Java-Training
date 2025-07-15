@@ -91,22 +91,60 @@ public class NumbersPrac {
 //	}
 	
 	//Automorphic no
-	int sq = 0;
-	sq = n*n;
-	while(n>0) {
-		int digit = n%10;
-		int dig2 = sq%10;
-		if(digit != dig2) {
-			sq /= 10;
-			n /= 10;
-		}
-	}
-	if(sq == n) {
-		System.out.println("Automorphic no");
-	}
+//	int sq = 0;
+//	sq = n*n;
+//	while(n>0) {
+//		int digit = n%10;
+//		int dig2 = sq%10;
+//		if(digit != dig2) {
+//			sq /= 10;
+//			n /= 10;
+//		}
+//	}
+//	if(sq == n) {
+//		System.out.println("Automorphic no");
+//	}
 	
-	}
+   //	Magic no
+//	int sum = 0;
+//	int num =n;
+//	
+//	while (n > 0 || sum > 9) {
+//	    if (n == 0) {
+//	        n = sum;
+//	        sum = 0;
+//	    }
+//	    int digit = n % 10;
+//	    sum += digit;
+//	    n /= 10;
+//	}
+//
+//	if (sum == 1) {
+//	    System.out.println(jnum + " is a Magic Number!!!!");
+//	} else {
+//	    System.out.println(num + " is NOT a Magic Number!!!");
+//	}
 	
+	//Kaprekar no
 	
+	int square = n * n;
+    int temp = square;
+    int digits = 0;
 
+    int num = n;
+    while (n > 0) {
+        digits++;
+        n /= 10;
+    }
+
+    int divisor = (int) Math.pow(10, digits);
+    int rightPart = square % divisor;
+    int leftPart = square / divisor;
+
+    if (leftPart + rightPart == num) {
+        System.out.println(num + " is a Kaprekar Number!");
+    } else {
+        System.out.println(num + " is NOT a Kaprekar Number.");
+    }
+	}
 }
