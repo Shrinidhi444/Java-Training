@@ -63,7 +63,7 @@ System.out.println(b);
 System.out.println();
 
 //Sorting
-int[] arr= {1,0,5,0,2,3,0,0};
+int[] arr={1,0,5,0,2,3,0,0};
 
 for(int i = 0;i<arr.length;i++) {
     if(arr[i] == 0) {
@@ -72,6 +72,19 @@ for(int i = 0;i<arr.length;i++) {
 	}
     System.out.println(arr[i]);
 }
+
+System.out.println();
+
+//swap the elements
+
+for(int i = 0;i<arr.length;i++) {
+	if(arr[i]!=0) {
+		
+	}
+System.out.println(arr[i]);
+}
+
+
 
 
 }
