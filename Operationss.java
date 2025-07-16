@@ -17,10 +17,8 @@ public class Operationss {
 		else {
 			System.out.println("World!!!");
 		}
-	}
-	
-}
 		
+		System.out.println();
 		//C
 //		int main() {
 //			int a = printf("Hello World");
@@ -34,4 +32,48 @@ public class Operationss {
 //		return 0;
 //	}
 
+//int main() {
+//	int a =printf("%d\n",10);
+//	printf("%d",a);
+//	return 0;
+//}
+
+		//swap ththe numbers
+int a = 4;
+int b = 7;
+a=a*b;
+b=a/b;
+a=a/b;
+System.out.println(a);
+System.out.println(b);
+
+System.out.println();
+
+// Swap in other logic
+int c = b;
+int d = a;
+b=d;
+a=c;
+System.out.println(a);
+System.out.println(b);
+
+//swap numbers
+//a^2-2ab+b^2
+
+System.out.println();
+
+//Sorting
+int[] arr= {1,0,5,0,2,3,0,0};
+
+for(int i = 0;i<arr.length;i++) {
+    if(arr[i] == 0) {
+    	arr[i] = arr[i-1];
+    	i++;
+	}
+    System.out.println(arr[i]);
+}
+
+
+}
+	}
 
