@@ -38,7 +38,6 @@ class WordRev{
         String[] words = sentence.split("\\s+");
         WordRev stack = new WordRev(words.length);
 
-        // Push each word into the stack
         for (String word : words) {
             stack.push(word);
         }
