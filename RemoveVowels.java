@@ -1,55 +1,150 @@
 package PacJava;
 import java.util.*;
 
-public class RemoveVowels {
+public class LlImp {
     Node head;
 
     class Node {
-        String data;
+        int data;
         Node next;
 
-        Node(String d) {
+        Node(int d) {
             this.data = d;
             this.next = null;
         }
     }
 
-    void insert(String data) {
+    LlImp() {
+        this.head = null;
+    }
+
+    void insert(int data) {
         Node newNode = new Node(data);
-        head = newNode;
-    }
-
-    String removeVowels(String str) {
-        StringBuilder result = new StringBuilder();
-        for (char ch : str.toCharArray()) {
-            if (!isVowel(ch)) {
-                result.append(ch);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
             }
+            current.next = newNode;
         }
-        return result.toString();
-    }
-
-    boolean isVowel(char ch) {
-        return "AEIOUaeiou".indexOf(ch) != -1;
     }
 
     void display() {
         if (head == null) {
             System.out.println("empty");
         } else {
-            System.out.println(removeVowels(head.data));
+            Node current = head;
+            while (current != null) {
+                System.out.print(current.data + " ");
+                current = current.next;
+            }
+            System.out.println();
         }
     }
 
+    void InsertFirst(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    void InsertMid(int data, int prev) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            System.out.print("Empty");
+            return;
+        } else {
+            Node current = head;
+            while (current != null && current.data != prev) {
+                current = current.next;
+            }
+            if (current != null) {
+                newNode.next = current.next;
+                current.next = newNode;
+            }
+        }
+    }
+
+    void delete(int data) {
+        if (head == null) {
+            System.out.print("Empty");
+            return;
+        } else if (head.data == data) {
+            head = head.next;
+        } else {
+            Node current = head;
+            while (current.next != null && current.next.data != data) {
+                current = current.next;
+            }
+            if (current.next != null) {
+                current.next = current.next.next;
+            }
+        }
+    }
+
+    void reverse(Node node) {
+        if (node == null) {
+            return;
+        }
+        reverse(node.next);
+        System.out.print(node.data + " ");
+    }
+
+    boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num == 2) return true;
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    void displayPrime() {
+        if (head == null) {
+            System.out.println("Empty");
+            return;
+        }
+        Node current = head;
+        System.out.print("Prime numbers: ");
+        while (current != null) {
+            if (isPrime(current.data)) {
+                System.out.print(current.data + " ");
+            }
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        RemoveVowels list = new RemoveVowels();
+        LlImp m = new LlImp();
+        m.insert(10);
+        m.insert(20);
+        m.insert(30);
+        m.insert(40);
+        m.insert(50);
+        m.insert(11);
+        m.insert(13);
+        m.insert(17);
+        m.display();
 
-        System.out.print("Enter a name: ");
-        String name = sc.nextLine();
-        list.insert(name);
+        System.out.println();
+        m.InsertFirst(90);
+        m.display();
 
-        System.out.println("Name after removing vowels:");
-        list.display();
+        System.out.println();
+        m.InsertMid(70, 30);
+        m.display();
+
+        System.out.println();
+        m.delete(70);
+        m.display();
+
+        System.out.println("\nReversed:");
+        m.reverse(m.head);
+        System.out.println();
+
+        m.displayPrime();
     }
 }

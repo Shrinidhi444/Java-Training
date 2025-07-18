@@ -91,7 +91,32 @@ public class LlImp {
     	reverse(node.next);
     	System.out.print(node.data+" ");  	
     }
-
+    
+    boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num == 2) return true;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+    
+    void displayP() {
+    	if(head == null) {
+    		System.out.println("Empty");
+    		return ;
+    	}
+    		Node current = head;
+    		System.out.println("Prime numbers :");
+    		while(current.next != null) {
+    			if(isPrime(current.data)) {
+    				System.out.println(current.data + " ");
+    			}
+    			current=current.next;
+    		}
+    		System.out.println();
+    	}
+   
     public static void main(String[] args) {
         LlImp m = new LlImp();
         m.insert(10);
@@ -111,5 +136,6 @@ public class LlImp {
         m.display();
         System.out.println();
         m.reverse(m.head);
+        m.displayP();
     }
 }
