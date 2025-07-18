@@ -1,5 +1,4 @@
 package PacJava;
-import java.util.*;
 
 public class RemoveVowels {
     Node head;
@@ -53,7 +52,7 @@ public class RemoveVowels {
     void InsertMid(int data, int prev) {
         Node newNode = new Node(data);
         if (head == null) {
-            System.out.print("Empty");
+            System.out.println("Empty");
             return;
         } else {
             Node current = head;
@@ -63,13 +62,15 @@ public class RemoveVowels {
             if (current != null) {
                 newNode.next = current.next;
                 current.next = newNode;
+            } else {
+                System.out.println("Previous node " + prev + " not found.");
             }
         }
     }
 
     void delete(int data) {
         if (head == null) {
-            System.out.print("Empty");
+            System.out.println("Empty");
             return;
         } else if (head.data == data) {
             head = head.next;
@@ -80,6 +81,8 @@ public class RemoveVowels {
             }
             if (current.next != null) {
                 current.next = current.next.next;
+            } else {
+                System.out.println("Element " + data + " not found.");
             }
         }
     }
@@ -95,7 +98,7 @@ public class RemoveVowels {
     boolean isPrime(int num) {
         if (num <= 1) return false;
         if (num == 2) return true;
-        for (int i = 2; i <= num / 2; i++) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) return false;
         }
         return true;
@@ -116,11 +119,9 @@ public class RemoveVowels {
         }
         System.out.println();
     }
-    
-
 
     public static void main(String[] args) {
-        LlImp m = new LlImp();
+    	RemoveVowels m = new RemoveVowels();
         m.insert(10);
         m.insert(20);
         m.insert(30);
