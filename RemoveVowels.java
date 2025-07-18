@@ -1,7 +1,7 @@
 package PacJava;
 import java.util.*;
 
-public class LlImp {
+public class RemoveVowels {
     Node head;
 
     class Node {
@@ -14,7 +14,7 @@ public class LlImp {
         }
     }
 
-    LlImp() {
+    RemoveVowels() {
         this.head = null;
     }
 
@@ -116,6 +116,8 @@ public class LlImp {
         }
         System.out.println();
     }
+    
+
 
     public static void main(String[] args) {
         LlImp m = new LlImp();
