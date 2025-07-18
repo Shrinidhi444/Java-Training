@@ -83,6 +83,14 @@ public class LlImp {
             }
         }
     }
+    
+    void reverse(Node node) {
+    	if(node == null) {
+    		return ;
+    	}
+    	reverse(node.next);
+    	System.out.print(node.data+" ");  	
+    }
 
     public static void main(String[] args) {
         LlImp m = new LlImp();
@@ -101,5 +109,7 @@ public class LlImp {
         System.out.println();
         m.delete(70);
         m.display();
+        System.out.println();
+        m.reverse(m.head);
     }
 }
