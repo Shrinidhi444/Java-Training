@@ -62,7 +62,7 @@ public class Boundrytraversal {
         }
         printLeaves(node.right);
     }
-
+   
     public static void main(String[] args) {
         Boundrytraversal tree = new Boundrytraversal();
         int[] arr = {50, 30, 70, 20, 40, 60, 80};
@@ -75,3 +75,4 @@ public class Boundrytraversal {
         System.out.println();
     }
 }
+
