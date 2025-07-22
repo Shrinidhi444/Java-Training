@@ -7,7 +7,7 @@ public class CF144A {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Read array elements
+        
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
@@ -39,8 +39,6 @@ public class CF144A {
         System.out.print(swaps);
     }
 }
-
-
 
 // if(max_index > min_index){
 //max_index + size_of_arr-min_index-2;}
