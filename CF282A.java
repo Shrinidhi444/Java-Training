@@ -9,7 +9,7 @@ public class CF282A {
         int x = 0;
         for (int i = 0; i < n; i++) {
             String op = sc.nextLine();
-            if (op.contains("+")) {
+            if (op.charAt(0)=='+' || op.charAt(op.length()-1)=='+') {
                 x++;
             } else {
                 x--;
