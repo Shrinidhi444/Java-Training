@@ -12,7 +12,7 @@ public class CF282A {
             if (op.charAt(0)=='+' || op.charAt(op.length()-1)=='+') {
                 x++;
             } else {
-                x--;
+                x--; 
             }
         }
         System.out.println(x);
