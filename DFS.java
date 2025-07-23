@@ -46,11 +46,16 @@ public class DFS{
 		}
 	}
 	public static void main(String[] args) {
+		int a = args.length;
+        
+		
+		for(int i = 0;i<=a;i++) {
+			System.out.println(a);
+		}
 		Scanner sc = new Scanner(System.in);
 		 
 		 DFS g = new DFS();
 		 g.Addvertex(1);
-		 g.Addvertex(2);
 		 g.Addvertex(3);
 		 g.Addvertex(4);
 		 g.Addvertex(5);
@@ -67,6 +72,7 @@ public class DFS{
 		 g.AddEdges(7,8);
 		 g.AddEdges(8,5);
 		 g.Display();
+		 g.dfs(1);
 	}
 
 }

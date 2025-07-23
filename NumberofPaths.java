@@ -1,59 +1,78 @@
 package PacJava;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class NumberofPaths {
+    HashMap<Integer, LinkedList<Integer>> graph;
+    NumberofPaths(){
+        graph = new HashMap<>();
+    }
+    void addVertex(int v){
+        graph.putIfAbsent(v, new LinkedList<>());
+    }
+    void addEdge(int u, int v){
+        addVertex(u);
+        addVertex(v);
+        graph.get(u).add(v);
+    }
+    void findPaths(int start, int end){
+        List<Integer> visited = new ArrayList<>();
+        dfsHelper(start, end, visited);
+    }
+    void dfsHelper(int curr, int end, List<Integer> visited){
+        visited.add(curr);
 
-HashMap<Integer,LinkedList<Integer>> hm;
+        if(curr == end){
+            for(int vertex : visited){
+                System.out.print(vertex + " ");
+            }
+            System.out.println();
+            visited.removeLast();
+            return;
+        }
 
-NumberofPaths(){
-	hm = new HashMap<>();
-	}
+        for(int nbr : graph.get(curr)){
+            if(!visited.contains(nbr)){
+                dfsHelper(nbr, end, visited);
+            }
+        }
 
-void Addvertex(int v) {
-	hm.putIfAbsent(v,new LinkedList<>());
-}
+        visited.removeLast();//to explore other paths going through this node
+    }
+    void display(){
+        for(int vertex : graph.keySet()){
+            System.out.print(vertex + "-> ");
+            for(int neigh : graph.get(vertex)){
+                System.out.print("(" + neigh + ", "+ System.identityHashCode(neigh) +") ");
+            }
+            System.out.println();
+        }
+    }
+    void createGraph(Scanner sc){
+        System.out.println("Enter no. of edges: ");
+        int e = sc.nextInt();
+        System.out.println("Enter edges: ");
+        for(int i=0; i<e; i++){
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            addEdge(u, v);
+        }
+    }
+    public static void main(String[] args) {
+        NumberofPaths g = new NumberofPaths();
+        Scanner sc = new Scanner(System.in);
 
-void Addedges(int u,int v) {
-	hm.get(v).add(u);
-	hm.get(u).add(v);
-}
+        g.createGraph(sc);
 
-void dfs(int start) {
-	HashSet<Integer> end= new HashSet<>();
-	dfsHelper(start,end);
-}
+        System.out.println("Enter start and end nodes: ");
+        int start = sc.nextInt();
+        int end = sc.nextInt();
 
-void dfsHelper(int start,HashSet<Integer> end) {
-	end.add(start);
-	System.out.print(start);
-	for(int nbr:hm.get(start)) {
-		dfsHelper(start,end);
-	}	
-}
-public static void main(String[] args) {
-	int a = args.length;
-    
-	
-	for(int i = 0;i<=a;i++) {
-		System.out.println(a);
-	}
-	Scanner sc = new Scanner(System.in);
-	 
-	 DFS g = new DFS();
-	 g.Addvertex(1);
-	 g.Addvertex(2);
-	 g.Addvertex(3);
-	 g.Addvertex(4);
-	 g.Addvertex(5);
-	 g.AddEdges(1,2);
-	 g.AddEdges(1,3);
-	 g.AddEdges(2,3);
-	 g.AddEdges(3,4);
-	 g.Display();
-	 g.dfs(1);
-}
-
+        // g.display();
+        System.out.println("Paths: ");
+        g.findPaths(start, end);
+    }
 }
