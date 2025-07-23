@@ -48,8 +48,10 @@ public static void main(String[] args) {
 	 g.Addvertex(3);
 	 g.Addvertex(4);
 	 g.Addvertex(5);
-	 g.AddEdges(1,5);
+	 g.AddEdges(1,2);
+	 g.AddEdges(1,3);
 	 g.AddEdges(2,3);
+	 g.AddEdges(3,4);
 	 g.Display();
 	 g.dfs(1);
 }
