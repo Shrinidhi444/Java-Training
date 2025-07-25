@@ -34,3 +34,4 @@ public class PracSw {
 	       Sum(arr, target);
 	    }
 }
+
