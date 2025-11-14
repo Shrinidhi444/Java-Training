@@ -37,18 +37,84 @@ public class NumbersProblem {
 			System.out.println("Not leap");
 		}
 	}
+	
+	static void IsPrime(int n) {
+		if(n<2) {
+			System.out.println(+n+"Is Not Prime");
+		}else{
+			boolean prime=true;
+			for(int i=2;i<=n;i++) {
+				if(n%i==0) {
+					prime=false;
+					break;
+				}
+			}
+			if(prime=true) {
+				System.out.println(+n+"Is Prime");
+			}else {
+				System.out.println(+n+"Is Not Prime");
+			}
+		}
+		
+	}
+	
+//	static void PrintS(int n) {
+//		for(int i=0;i<n-1;i++) {
+//			for(int j=i;j<n-1;j++) {
+//				if(i==0||i==n-1||i==n/2+1/*(j==0 && j<n/2)||(j==n-1 && j>n/2)*/) {
+//					System.out.print("*");
+//				}else {
+//					System.out.print(" ");
+//				}
+//			}
+//		}
+//	}
+//	
+	static boolean IsprimeN(int n) {
+		if(n<2) return false;
+		for(int i=2;i<=n/2;i++) {
+			if(n%i==0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	static void NPrime(int n) {		
+			for(int i=n;i>=2;i--) {
+				if(IsprimeN(i)){
+				System.out.print(i+" ");
+			}
+		}
+			System.out.println();
+	}
+	
+	static void ReverseN(int n) {
+    	int rev=0,rem;
+    	while(n>0) {
+		rem=n%10;
+		rev=rev*10+rem;
+		n=n/10;
+			}
+		System.out.println("Reverse of Num : "+rev);
+		}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter number:");
 		int num=sc.nextInt();
-		System.out.print("Enter Year");
-		int Year=sc.nextInt();
+//		System.out.print("Enter Year:");
+//		int Year=sc.nextInt();
 		
 		PN(num);
 		EO(num);
 		SumofN(num);
-		LeapYear(Year);
+		// LeapYear(Year);
+		IsPrime(num);
+		NPrime(num);
+		ReverseN(num);
+		PrintS(num);
 	
 	}
 
