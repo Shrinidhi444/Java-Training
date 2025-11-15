@@ -59,6 +59,42 @@ public class SortingAlgos {
 		}
 		System.out.println();
 	}
+	
+	static void QuickSort(int arr[],int low,int high) {
+		if(low<high) {
+			int piviote=pivot(arr,low,high);
+			QuickSort(arr,low,piviote-1);
+			QuickSort(arr,piviote+1,high);
+		}
+	}
+		
+		static int pivot(int arr[],int low,int high) {
+			int pivot=arr[low];
+			int i=low,j=high;
+			
+			while(i<j) {
+				while(i<=high && arr[i]<=pivot) {
+					i++;
+				}
+				while(j>=low && arr[j]>pivot) {
+					j--;
+				}
+				
+				if(i<j) {
+					Swap(arr,i,j);
+				}
+			}
+			
+			Swap(arr,low,j);
+		  return j;
+		}
+		
+		static void Swap(int arr[],int i,int j) {
+			int temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+		}
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -77,6 +113,12 @@ public class SortingAlgos {
      SelectionSort(arr);
      BubbleSort(arr);
      InsertionSort(arr);
+     QuickSort(arr,0,arr.length-1);
+     
+     System.out.print("Quick Sort Elements: ");
+     for (int x : arr) {
+         System.out.print(x + " ");
+     }
 	}
 
 }
